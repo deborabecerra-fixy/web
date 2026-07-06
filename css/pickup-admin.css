@@ -1,0 +1,502 @@
+/* ================================================================
+   FIXY PICKUP — Panel de administración (login + CRUD de puntos)
+   Hoja de estilos independiente: esta pantalla no es parte del sitio
+   público, así que no reutiliza los layouts de las landings de
+   servicio. Sí reutiliza las variables de marca (--f-navy, --f-blue,
+   etc.) definidas en fixy-services.css.
+   ================================================================ */
+
+.pu-admin-body {
+  margin: 0;
+  background: var(--f-paper, #F5F7FA);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--f-text, #173245);
+}
+
+/* ── Login ─────────────────────────────────────────────────────── */
+.pu-admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(0,143,195,.12), transparent 40%),
+    radial-gradient(circle at 10% 90%, rgba(251,190,55,.10), transparent 35%),
+    linear-gradient(180deg, #ffffff 0%, #f2f8fc 100%);
+}
+
+.pu-admin-login-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 40px 34px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(14,42,71,.14);
+  text-align: center;
+}
+
+.pu-admin-login-card h1 {
+  margin: 18px 0 4px;
+  font-size: 22px;
+  color: var(--f-navy, #0E2A47);
+}
+
+.pu-admin-login-card p {
+  margin: 0 0 22px;
+  font-size: 13.5px;
+  color: var(--f-text-soft, #56636c);
+}
+
+.pu-admin-config-warning {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(251,190,55,.16);
+  border: 1px solid rgba(251,190,55,.4);
+  color: #7a5c0c;
+  font-size: 12.5px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.pu-admin-config-warning code {
+  background: rgba(0,0,0,.06);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+#puAdminLoginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+#puAdminLoginForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--f-navy, #0E2A47);
+}
+
+#puAdminLoginForm input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,143,195,.2);
+  font-size: 14px;
+}
+
+#puAdminLoginForm input:focus {
+  outline: none;
+  border-color: var(--f-blue, #008FC3);
+  box-shadow: 0 0 0 4px rgba(0,143,195,.12);
+}
+
+#puAdminLoginBtn {
+  margin-top: 6px;
+  padding: 13px;
+  border: none;
+  border-radius: 999px;
+  background: var(--f-navy, #0E2A47);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#puAdminLoginBtn:hover { background: var(--f-blue, #008FC3); }
+#puAdminLoginBtn:disabled { opacity: .5; cursor: not-allowed; }
+
+.pu-admin-error {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: #c0392b;
+}
+
+/* ── App shell ─────────────────────────────────────────────────── */
+.pu-admin-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: #fff;
+  border-bottom: 1px solid rgba(0,143,195,.12);
+}
+
+.pu-admin-topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: var(--f-navy, #0E2A47);
+}
+
+.pu-admin-topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--f-text-soft, #56636c);
+}
+
+.pu-admin-topbar-user button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,143,195,.2);
+  background: #fff;
+  color: var(--f-navy, #0E2A47);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pu-admin-topbar-user button:hover { background: var(--f-navy, #0E2A47); color: #fff; }
+
+.pu-admin-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 16px 28px 0;
+}
+
+.pu-admin-tab {
+  padding: 10px 18px;
+  border: 1px solid rgba(0,143,195,.18);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  background: #eef4f8;
+  color: var(--f-navy, #0E2A47);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.pu-admin-tab.is-active {
+  background: #fff;
+  color: var(--f-blue, #008FC3);
+}
+
+.pu-admin-main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.pu-admin-panel { display: none; }
+.pu-admin-panel.is-active { display: block; }
+
+.pu-admin-panel h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  color: var(--f-navy, #0E2A47);
+}
+
+.pu-admin-hint {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: var(--f-text-soft, #56636c);
+}
+
+/* ── Pasos de alta de punto ────────────────────────────────────── */
+.pu-admin-step {
+  margin-bottom: 26px;
+  padding: 20px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(0,143,195,.12);
+}
+
+.pu-admin-step-label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--f-blue, #008FC3);
+}
+
+.pu-admin-address-search {
+  display: flex;
+  gap: 10px;
+}
+
+.pu-admin-address-search input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,143,195,.2);
+  font-size: 14px;
+}
+
+.pu-admin-address-search button,
+.pu-admin-import-fail-row button,
+.pu-admin-import-summary button,
+#puAdminImportStart {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--f-navy, #0E2A47);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.pu-admin-address-search button:hover,
+#puAdminImportStart:hover { background: var(--f-blue, #008FC3); }
+
+.pu-admin-address-results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pu-admin-address-result {
+  text-align: left;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,143,195,.16);
+  background: #f7fbfd;
+  font-size: 13px;
+  color: var(--f-navy, #0E2A47);
+  cursor: pointer;
+}
+
+.pu-admin-address-result:hover { background: rgba(0,143,195,.08); }
+
+.pu-admin-confirm-map {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pu-admin-coords {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--f-text-soft, #56636c);
+}
+
+/* ── Formulario de detalle ─────────────────────────────────────── */
+.pu-admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pu-admin-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--f-navy, #0E2A47);
+}
+
+.pu-admin-form input,
+.pu-admin-form select,
+.pu-admin-form textarea {
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,143,195,.2);
+  font-size: 13.5px;
+  font-family: inherit;
+}
+
+.pu-admin-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.pu-admin-checkbox-group span {
+  display: flex;
+  gap: 16px;
+  font-weight: 400;
+}
+
+.pu-admin-inline-checkbox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400 !important;
+}
+
+.pu-admin-form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+#puAdminSaveBtn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 999px;
+  background: var(--f-navy, #0E2A47);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#puAdminSaveBtn:hover { background: var(--f-blue, #008FC3); }
+
+#puAdminCancelBtn {
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,143,195,.2);
+  background: #fff;
+  color: var(--f-navy, #0E2A47);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pu-admin-feedback {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pu-admin-feedback.is-ok { color: #1a8a4a; }
+.pu-admin-feedback.is-error { color: #c0392b; }
+
+/* ── Gestión de puntos ─────────────────────────────────────────── */
+.pu-admin-manage-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.pu-admin-manage-filters input,
+.pu-admin-manage-filters select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,143,195,.2);
+  font-size: 13px;
+}
+
+.pu-admin-manage-filters input { flex: 1; min-width: 220px; }
+
+.pu-admin-table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(0,143,195,.12);
+  background: #fff;
+}
+
+.pu-admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.pu-admin-table th {
+  text-align: left;
+  padding: 12px 14px;
+  background: #eef4f8;
+  color: var(--f-navy, #0E2A47);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.pu-admin-table td {
+  padding: 12px 14px;
+  border-top: 1px solid rgba(0,143,195,.08);
+  vertical-align: middle;
+}
+
+.pu-admin-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.pu-admin-badge.is-active { background: rgba(26,138,74,.14); color: #1a8a4a; }
+.pu-admin-badge.is-paused { background: rgba(192,57,43,.12); color: #c0392b; }
+
+.pu-admin-row-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.pu-admin-row-actions button {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,143,195,.2);
+  background: #fff;
+  color: var(--f-navy, #0E2A47);
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pu-admin-row-actions button:hover { background: rgba(0,143,195,.08); }
+.pu-admin-row-actions button.is-danger { border-color: rgba(192,57,43,.3); color: #c0392b; }
+.pu-admin-row-actions button.is-danger:hover { background: rgba(192,57,43,.08); }
+
+/* ── Importación masiva ────────────────────────────────────────── */
+.pu-admin-import-progress {
+  margin-top: 18px;
+}
+
+.pu-admin-import-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #e6eef3;
+  overflow: hidden;
+}
+
+.pu-admin-import-bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--f-blue, #008FC3);
+  transition: width .2s ease;
+}
+
+#puAdminImportStatus {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--f-text-soft, #56636c);
+}
+
+.pu-admin-import-summary {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(0,143,195,.06);
+}
+
+.pu-admin-import-fails {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pu-admin-import-fail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(192,57,43,.06);
+  font-size: 12.5px;
+}
+
+@media (max-width: 700px) {
+  .pu-admin-form-grid { grid-template-columns: 1fr; }
+  .pu-admin-tabs { flex-wrap: wrap; }
+  .pu-admin-main { padding: 18px; }
+}

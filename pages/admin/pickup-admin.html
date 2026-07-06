@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Panel de administración FixyPoints | Fixy</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/fixy-services.css">
+    <link rel="stylesheet" href="../../css/pickup-admin.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body class="pu-admin-body">
+
+    <!-- Pantalla de login -->
+    <div class="pu-admin-login" id="puAdminLogin">
+        <div class="pu-admin-login-card">
+            <img src="../../images/logo-celeste.png" alt="Fixy" width="130">
+            <h1>Panel FixyPoints</h1>
+            <p>Acceso exclusivo para administradores de Fixy.</p>
+
+            <div class="pu-admin-config-warning" id="puAdminConfigWarning" hidden>
+                Todavía no configuraste Firebase en <code>js/firebase-config.js</code>. Completá esos datos antes de poder iniciar sesión (ver <code>SETUP-FIREBASE.md</code>).
+            </div>
+
+            <form id="puAdminLoginForm">
+                <label>Email
+                    <input type="email" id="puAdminEmail" autocomplete="username" required>
+                </label>
+                <label>Contraseña
+                    <input type="password" id="puAdminPassword" autocomplete="current-password" required>
+                </label>
+                <button type="submit" id="puAdminLoginBtn">Ingresar</button>
+                <p class="pu-admin-error" id="puAdminLoginError" hidden></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- App de administración (se muestra recién tras el login) -->
+    <div class="pu-admin-app" id="puAdminApp" hidden>
+        <header class="pu-admin-topbar">
+            <div class="pu-admin-topbar-brand">
+                <img src="../../images/logo-celeste.png" alt="Fixy" width="110">
+                <span>Panel FixyPoints</span>
+            </div>
+            <div class="pu-admin-topbar-user">
+                <span id="puAdminUserEmail"></span>
+                <button type="button" id="puAdminLogoutBtn">Cerrar sesión</button>
+            </div>
+        </header>
+
+        <nav class="pu-admin-tabs">
+            <button type="button" class="pu-admin-tab is-active" data-tab="add">Agregar punto</button>
+            <button type="button" class="pu-admin-tab" data-tab="manage">Gestionar puntos</button>
+            <button type="button" class="pu-admin-tab" data-tab="import">Importar datos iniciales</button>
+        </nav>
+
+        <main class="pu-admin-main">
+
+            <!-- TAB 1: Agregar / editar punto -->
+            <section class="pu-admin-panel is-active" id="puAdminTabAdd">
+                <h2 id="puAdminAddTitle">Agregar nuevo punto Pick Up</h2>
+                <p class="pu-admin-hint">Buscá la dirección exacta, confirmá el pin en el mapa y completá los datos del local.</p>
+
+                <div class="pu-admin-step">
+                    <label class="pu-admin-step-label">1. Buscar dirección</label>
+                    <div class="pu-admin-address-search">
+                        <input type="text" id="puAdminAddressInput" placeholder="Calle y número, localidad (ej: Av. Rivadavia 4550, Almagro)">
+                        <button type="button" id="puAdminAddressSearchBtn">Buscar</button>
+                    </div>
+                    <div class="pu-admin-address-results" id="puAdminAddressResults"></div>
+                </div>
+
+                <div class="pu-admin-step" id="puAdminConfirmStep" hidden>
+                    <label class="pu-admin-step-label">2. Confirmar ubicación exacta</label>
+                    <p class="pu-admin-hint">Arrastrá el pin si necesitás ajustar la posición exacta del local.</p>
+                    <div id="puAdminConfirmMap" class="pu-admin-confirm-map"></div>
+                    <p class="pu-admin-coords" id="puAdminCoordsLabel"></p>
+                </div>
+
+                <div class="pu-admin-step" id="puAdminDetailsStep" hidden>
+                    <label class="pu-admin-step-label">3. Datos del punto</label>
+                    <form id="puAdminDetailsForm" class="pu-admin-form">
+                        <input type="hidden" id="puAdminEditingId" value="">
+                        <label>Nombre / etiqueta del punto
+                            <input type="text" id="puAdminNombre" placeholder="Ej: FixyPoint Almagro" required>
+                        </label>
+                        <label>Dirección completa
+                            <input type="text" id="puAdminDireccion" required>
+                        </label>
+                        <div class="pu-admin-form-grid">
+                            <label>Localidad
+                                <input type="text" id="puAdminLocalidad">
+                            </label>
+                            <label>Partido
+                                <input type="text" id="puAdminPartido">
+                            </label>
+                            <label>Código postal
+                                <input type="text" id="puAdminCP">
+                            </label>
+                            <label>Zona
+                                <select id="puAdminZona">
+                                    <option value="caba">CABA</option>
+                                    <option value="z1">Primer Cordón</option>
+                                    <option value="z2" selected>Segundo Cordón</option>
+                                    <option value="z3">Tercer Cordón</option>
+                                </select>
+                            </label>
+                        </div>
+                        <label>Horarios de atención
+                            <textarea id="puAdminHorarios" rows="2" placeholder="Ej: Lunes a viernes 9 a 18 hs"></textarea>
+                        </label>
+                        <label class="pu-admin-checkbox-group">Servicios que soporta
+                            <span>
+                                <label class="pu-admin-inline-checkbox"><input type="checkbox" id="puAdminServPickup" checked> Pick Up</label>
+                                <label class="pu-admin-inline-checkbox"><input type="checkbox" id="puAdminServDropoff" checked> Drop Off</label>
+                            </span>
+                        </label>
+                        <label class="pu-admin-checkbox-group">Estado
+                            <select id="puAdminEstado">
+                                <option value="activo" selected>Activo</option>
+                                <option value="pausado">Pausado</option>
+                            </select>
+                        </label>
+                        <div class="pu-admin-form-actions">
+                            <button type="submit" id="puAdminSaveBtn">Guardar punto</button>
+                            <button type="button" id="puAdminCancelBtn">Cancelar</button>
+                        </div>
+                        <p class="pu-admin-feedback" id="puAdminSaveFeedback" hidden></p>
+                    </form>
+                </div>
+            </section>
+
+            <!-- TAB 2: Gestionar puntos -->
+            <section class="pu-admin-panel" id="puAdminTabManage">
+                <h2>Gestionar puntos existentes</h2>
+                <div class="pu-admin-manage-filters">
+                    <input type="text" id="puAdminManageSearch" placeholder="Buscar por nombre, dirección o localidad">
+                    <select id="puAdminManageEstado">
+                        <option value="">Todos los estados</option>
+                        <option value="activo">Solo activos</option>
+                        <option value="pausado">Solo pausados</option>
+                    </select>
+                    <select id="puAdminManageZona">
+                        <option value="">Todas las zonas</option>
+                        <option value="caba">CABA</option>
+                        <option value="z1">Primer Cordón</option>
+                        <option value="z2">Segundo Cordón</option>
+                        <option value="z3">Tercer Cordón</option>
+                    </select>
+                </div>
+                <p class="pu-admin-hint" id="puAdminManageCount">Cargando puntos…</p>
+                <div class="pu-admin-table-wrap">
+                    <table class="pu-admin-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Zona</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="puAdminManageBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- TAB 3: Importar datos iniciales -->
+            <section class="pu-admin-panel" id="puAdminTabImport">
+                <h2>Importar los 88 puntos reales de arranque</h2>
+                <p class="pu-admin-hint">Lee <code>data/pickup-points-seed.json</code> (extraído del Google My Maps real de Fixy), geocodifica cada dirección exacta y te deja confirmar antes de subir todo a la base de datos. Se ejecuta una sola vez.</p>
+                <button type="button" id="puAdminImportStart">Iniciar geocodificación</button>
+                <div class="pu-admin-import-progress" id="puAdminImportProgress" hidden>
+                    <div class="pu-admin-import-bar"><span id="puAdminImportBarFill"></span></div>
+                    <p id="puAdminImportStatus">Procesando 0 / 0…</p>
+                </div>
+                <div class="pu-admin-import-summary" id="puAdminImportSummary" hidden>
+                    <p><strong id="puAdminImportOkCount">0</strong> direcciones geocodificadas correctamente. <strong id="puAdminImportFailCount">0</strong> necesitan revisión manual.</p>
+                    <button type="button" id="puAdminImportConfirm">Confirmar e importar a Firestore</button>
+                </div>
+                <div class="pu-admin-import-fails" id="puAdminImportFails"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="../../js/firebase-config.js"></script>
+    <script src="../../js/pickup-admin.js"></script>
+</body>
+</html>

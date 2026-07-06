@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fixy PickUp | Red de Puntos Pick Up &amp; Drop Off en AMBA</title>
+    <meta name="description" content="FixyPoints: red de más de 150 puntos de retiro y despacho en AMBA. Reducí hasta un 40% los costos de última milla, eliminá entregas fallidas e integrá el checkout de tu e-commerce.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/fixy-services.css">
+    <link rel="stylesheet" href="../css/fixy-motion.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+</head>
+<body class="homepage-5 pickup-page">
+    <div class="fxm-progress" aria-hidden="true"><span></span></div>
+    <a href="https://linktr.ee/fixylogistica" target="_blank" rel="noopener noreferrer" class="wp-fijo" aria-label="Contactar a Fixy">
+        <i class="far fa-comment-dots" aria-hidden="true"></i>
+    </a>
+    <button class="fixy-mobile-menu-button navbar-toggler" type="button" data-toggle="navbarToggler" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="main">
+        <header class="navbar navbar-sticky navbar-expand-lg navbar-dark pu-navbar">
+            <div class="container position-relative">
+                <a class="navbar-brand" href="../index.html">
+                    <img class="navbar-brand-regular" src="../images/logo-celeste.png" alt="Fixy" width="150">
+                    <img class="navbar-brand-sticky" src="../images/logo-celeste.png" alt="Fixy" width="150">
+                </a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-inner">
+                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <nav>
+                        <ul class="navbar-nav" id="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item services-nav-item">
+                                <button class="nav-link services-menu-toggle" type="button" aria-expanded="false" aria-controls="services-dropdown">
+                                    <span>Servicios</span><span class="services-menu-chevron" aria-hidden="true"></span>
+                                </button>
+                                <div class="services-dropdown" id="services-dropdown">
+                                    <a class="services-dropdown-link" href="sameday.html"><span class="services-dropdown-icon services-icon-sameday" aria-hidden="true"></span><span><strong>Same Day</strong><small>Entregas en el dia para operaciones agiles.</small></span></a>
+                                    <a class="services-dropdown-link" href="fulfillment.html"><span class="services-dropdown-icon services-icon-fulfillment" aria-hidden="true"></span><span><strong>Fulfillment</strong><small>Almacenamiento, preparacion y despacho con FixyFull.</small></span></a>
+                                    <a class="services-dropdown-link" href="nextday.html"><span class="services-dropdown-icon services-icon-nextday" aria-hidden="true"></span><span><strong>Next Day</strong><small>Envios en 24 hs para CABA y GBA.</small></span></a>
+                                    <a class="services-dropdown-link current-service" href="pickup.html" aria-current="page"><span class="services-dropdown-icon services-icon-pickup" aria-hidden="true"></span><span><strong>Pick Up</strong><small>Puntos de retiro y despacho para ampliar cobertura.</small></span></a>
+                                    <a class="services-dropdown-link" href="flex.html"><span class="services-dropdown-icon services-icon-flex" aria-hidden="true"></span><span><strong>Flex</strong><small>Solucion para operaciones con Mercado Envios Flex.</small></span></a>
+                                    <a class="services-dropdown-link" href="fixypay.html"><span class="services-dropdown-icon services-icon-fixypay" aria-hidden="true"></span><span><strong>FixyPay</strong><small>Cobranza QR contraentrega con acreditacion inmediata.</small></span></a>
+                                </div>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="../index.html#beneficios">Beneficios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../index.html#cobertura">Área de cobertura</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../index.html#faq">FQA</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#pu-final">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- 1. Hero -->
+            <section class="pu-hero">
+                <div class="fxm-mesh" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="container">
+                    <div class="pu-hero-grid">
+                        <div class="pu-hero-copy">
+                            <span class="pu-kicker fxm-intro">FixyPoints</span>
+                            <h1 class="fxm-intro" data-fxm-delay="1">Más opciones de entrega, menos carritos abandonados.</h1>
+                            <p class="fxm-intro" data-fxm-delay="2">Ofrecé a tus compradores la red de retiro más conveniente de AMBA. Sincronizá tus despachos, reducí los costos de última milla hasta un 40% y dale flexibilidad total a tus clientes sin sumar carga manual a tu equipo.</p>
+                            <div class="pu-actions fxm-intro" data-fxm-delay="3">
+                                <a class="pu-btn pu-btn-primary fxm-magnetic fxm-shine" href="https://wa.me/5491150069182?text=Hola%20Fixy%2C%20quiero%20integrar%20FixyPoints%20en%20mi%20tienda." target="_blank" rel="noopener">Integrar FixyPoints en mi tienda</a>
+                                <a class="pu-btn pu-btn-secondary" href="#pu-mapa">Explorar la red de puntos</a>
+                            </div>
+                        </div>
+
+                        <div class="pu-hero-visual" aria-label="Ilustración de un FixyPoint: mostrador con un paquete de e-commerce y un cliente escaneando un código QR con su celular">
+                            <div class="pu-storefront-card">
+                                <div class="pu-storefront-head">
+                                    <span>FixyPoint homologado</span>
+                                    <span class="pu-storefront-badge"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Cercanía AMBA</span>
+                                </div>
+                                <div class="pu-counter">
+                                    <div class="pu-package">
+                                        <span class="pu-package-box"><i class="fas fa-box" aria-hidden="true"></i></span>
+                                        <div class="pu-package-info">
+                                            <strong>Pedido #A-4821</strong>
+                                            <span>Listo para retiro en mostrador</span>
+                                        </div>
+                                    </div>
+                                    <div class="pu-scan">
+                                        <div class="pu-qr"><i class="fas fa-qrcode" aria-hidden="true"></i></div>
+                                        <div class="pu-scan-device"><span class="pu-scan-beam" aria-hidden="true"></span></div>
+                                        <span class="pu-scan-check"><i class="fas fa-check-circle" aria-hidden="true"></i>Retiro validado</span>
+                                    </div>
+                                </div>
+                                <div class="pu-storefront-foot">
+                                    <span>Resguardo del paquete</span>
+                                    <strong>5 días hábiles</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="service-trust-bar">
+                <div class="container">
+                    <ul class="service-trust-list">
+                        <li><strong>150+</strong><span>Puntos activos y homologados en toda la red del AMBA.</span></li>
+                        <li><strong>SLA 24 hs</strong><span>Tiempo de tránsito estricto hasta el punto seleccionado.</span></li>
+                        <li><strong>5 días hábiles</strong><span>Resguardo seguro del paquete dentro del local.</span></li>
+                        <li><strong>-40%</strong><span>Reducción estimada en costos de última milla.</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 2. Doble solución operativa -->
+            <section class="pu-section" data-reveal>
+                <div class="container">
+                    <div class="pu-section-heading">
+                        <span class="pu-kicker">El corazón del servicio</span>
+                        <h2>Una red, dos flujos operativos</h2>
+                        <p>FixyPoints funciona como puntos de retiro para tus compradores y como puntos de despacho para tu propia operación, integrados al mismo flujo de ruteo inteligente.</p>
+                    </div>
+                    <div class="pu-dual-grid">
+                        <article class="pu-dual-card pu-pickup">
+                            <span class="pu-dual-icon"><i class="fas fa-store" aria-hidden="true"></i></span>
+                            <h3>Retiro en Sucursal Flexible</h3>
+                            <p>Tu cliente compra online en tu tienda y elige el FixyPoint más conveniente (cerca de su casa o su oficina) directamente desde el checkout.</p>
+                            <div class="pu-dual-highlight">
+                                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                <span>Eliminás por completo las entregas fallidas por ausencia y ofrecés una alternativa económica al envío a domicilio tradicional.</span>
+                            </div>
+                        </article>
+                        <article class="pu-dual-card pu-dropoff">
+                            <span class="pu-dual-icon"><i class="fas fa-dolly" aria-hidden="true"></i></span>
+                            <h3>Puntos de Despacho Ágiles</h3>
+                            <p>Si operás con tu propio stock o un depósito descentralizado, no necesitás esperar al camión de colecta. Dejá tus paquetes preparados en el FixyPoint más cercano.</p>
+                            <div class="pu-dual-highlight">
+                                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                <span>Nuestra red consolidada retira tus bultos diariamente, integrándolos de forma automática al flujo de ruteo inteligente hacia su destino final.</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Cobertura e infraestructura -->
+            <section id="pu-mapa" class="pu-section pu-bg-paper" data-reveal>
+                <div class="container">
+                    <div class="pu-map-grid">
+                        <div class="pu-map-panel-copy">
+                            <span class="pu-kicker">Cobertura e infraestructura</span>
+                            <h2>Una red real, agrupada por zona y en expansión.</h2>
+                            <p>Tus paquetes viajan hacia el punto seleccionado bajo un SLA estricto de 24 horas. Al ingresar al local de retiro, quedan resguardados de forma segura durante 5 días hábiles para que tu destinatario retire cuándo y dónde quiera.</p>
+
+                            <form class="pu-map-search" id="puMapSearchForm">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                <input type="text" id="puMapSearch" placeholder="Ingresá tu dirección completa (calle, número y localidad)" aria-label="Ingresá tu dirección para ver los puntos más cercanos" autocomplete="off">
+                                <button type="submit" class="pu-map-search-btn" id="puMapSearchGeo">
+                                    <span class="pu-map-search-btn-text">Buscar cercanos</span>
+                                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                            <div class="pu-search-results" id="puMapSearchResults"></div>
+
+                            <div class="pu-map-filters" role="group" aria-label="Filtrar puntos por zona">
+                                <button type="button" class="pu-map-filter" data-zone="caba">CABA</button>
+                                <button type="button" class="pu-map-filter" data-zone="z1">Primer Cordón</button>
+                                <button type="button" class="pu-map-filter" data-zone="z2">Segundo Cordón</button>
+                                <button type="button" class="pu-map-filter" data-zone="z3">Tercer Cordón</button>
+                            </div>
+
+                            <div class="pu-map-note"><strong>Cómo leer el mapa:</strong> los puntos se agrupan en clusters cuando alejás el zoom; a medida que acercás, se separan en pines individuales. Tocá un pin para ver dirección, horarios y servicios de cada FixyPoint.</div>
+                            <p class="pu-map-count" id="puMapCount">Cargando puntos activos…</p>
+                        </div>
+
+                        <div class="pu-map-canvas-wrap">
+                            <div id="puLeafletMap" class="pu-leaflet-map" role="img" aria-label="Mapa de la red de puntos Pick Up de Fixy en AMBA"></div>
+                            <div class="pu-map-legend" aria-hidden="true">
+                                <span><i style="background:#66D7DD"></i>CABA</span>
+                                <span><i style="background:#FBBE37"></i>1er Cordón</span>
+                                <span><i style="background:#008FC3"></i>2do Cordón</span>
+                                <span><i style="background:#06587C"></i>3er Cordón</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Por qué las marcas consolidadas eligen FixyPoints -->
+            <section class="pu-section" data-reveal>
+                <div class="container">
+                    <div class="pu-section-heading">
+                        <span class="pu-kicker">Infraestructura técnica</span>
+                        <h2>Por qué las marcas consolidadas eligen FixyPoints</h2>
+                    </div>
+                    <div class="pu-tech-grid">
+                        <article class="pu-tech-card">
+                            <span class="pu-tech-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></span>
+                            <h3>Checkout integrado y sin código</h3>
+                            <p>Sincronización nativa e inmediata con Shopify, Tiendanube y WooCommerce vía plugins, o conexión directa por API REST para plataformas a medida. El mapa de puntos se renderiza automáticamente en el checkout del comprador.</p>
+                        </article>
+                        <article class="pu-tech-card">
+                            <span class="pu-tech-icon"><i class="fas fa-bolt" aria-hidden="true"></i></span>
+                            <h3>Alertas automatizadas (cero consultas)</h3>
+                            <p>El sistema trackea el paquete en tiempo real y dispara notificaciones automatizadas por mail o WhatsApp al comprador con instrucciones claras y el código QR de retiro en el segundo exacto en que el local recibe el bulto.</p>
+                        </article>
+                        <article class="pu-tech-card">
+                            <span class="pu-tech-icon"><i class="fas fa-undo" aria-hidden="true"></i></span>
+                            <h3>Gestión de retornos inteligente</h3>
+                            <p>Si el comprador no retira tras cumplirse los 5 días hábiles, la red procesa el retorno inverso de forma ordenada, devolviendo la mercadería de forma consolidada hacia tu depósito o directo a tu Fulfillment Fixy.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. FAQ -->
+            <section id="pu-faq" class="service-faq" data-reveal>
+                <div class="container">
+                    <div class="pu-section-heading">
+                        <span class="pu-kicker">Preguntas frecuentes</span>
+                        <h2>Lo básico antes de integrar FixyPoints</h2>
+                    </div>
+                    <div class="accordion service-accordion" id="puFaqAccordion">
+                        <div class="card">
+                            <div class="card-header" id="puFaqOne">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#puFaqOneBody" aria-expanded="true" aria-controls="puFaqOneBody">¿Qué dimensiones máximas se permiten en los FixyPoints?</button>
+                            </div>
+                            <div id="puFaqOneBody" class="collapse show" aria-labelledby="puFaqOne" data-parent="#puFaqAccordion">
+                                <div class="card-body">Operamos con paquetes optimizados para e-commerce. Por cuestiones físicas y operativas de los comercios adheridos, el límite estructural por bulto es de hasta 10 kg.</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="puFaqTwo">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#puFaqTwoBody" aria-expanded="false" aria-controls="puFaqTwoBody">¿Qué documentación necesita el comprador para retirar?</button>
+                            </div>
+                            <div id="puFaqTwoBody" class="collapse" aria-labelledby="puFaqTwo" data-parent="#puFaqAccordion">
+                                <div class="card-body">El sistema le envía un código QR único y seguro a su dispositivo móvil junto con el DNI. No requiere imprimir etiquetas ni documentación en papel.</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="puFaqThree">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#puFaqThreeBody" aria-expanded="false" aria-controls="puFaqThreeBody">¿El servicio incluye seguro de mercadería?</button>
+                            </div>
+                            <div id="puFaqThreeBody" class="collapse" aria-labelledby="puFaqThree" data-parent="#puFaqAccordion">
+                                <div class="card-body">Sí. Al igual que toda nuestra red logística regional, los envíos hacia FixyPoints viajan bajo esquemas de monitoreo predictivo y conciliación digital.</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="puFaqFour">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#puFaqFourBody" aria-expanded="false" aria-controls="puFaqFourBody">¿Cómo se liquidan las tarifas de Drop Off?</button>
+                            </div>
+                            <div id="puFaqFourBody" class="collapse" aria-labelledby="puFaqFour" data-parent="#puFaqAccordion">
+                                <div class="card-body">Se integran directamente a tu cuenta corriente corporativa Fixy, bajo las listas tarifarias acordadas según tu volumen operativo mensual.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Cierre -->
+            <section id="pu-final" class="pu-closing" data-reveal>
+                <div class="container">
+                    <div class="pu-closing-inner">
+                        <span class="pu-kicker">FixyPoints</span>
+                        <h2>Ampliá las opciones de entrega de tu e-commerce hoy.</h2>
+                        <p>Sumá retiro y despacho en más de 150 puntos de AMBA, integrados al checkout de tu tienda y al ruteo inteligente de Fixy.</p>
+                        <div class="pu-closing-actions">
+                            <a class="fx-btn fx-btn-primary fxm-magnetic fxm-shine" href="https://wa.me/5491150069182?text=Hola%20Fixy%2C%20quiero%20iniciar%20una%20conversaci%C3%B3n%20sobre%20FixyPoints." target="_blank" rel="noopener">Iniciar Conversación por WhatsApp</a>
+                            <a class="fx-btn fx-btn-secondary" href="../index.html#contacto">Completar Formulario de Cotización</a>
+                        </div>
+                        <div><span class="service-final-urgency">Respondemos tu consulta el mismo día hábil</span></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer-area footer-dark">
+            <div class="footer-top ptb_100">
+                <div class="container">
+                    <div class="footer-grid-2026">
+                        <div class="footer-items">
+                            <h3 class="footer-title mb-2">Soluciones</h3>
+                            <ul>
+                                <li><a href="sameday.html">Same Day</a></li>
+                                <li><a href="nextday.html">Next Day</a></li>
+                                <li><a href="fulfillment.html">Fulfillment</a></li>
+                                <li><a href="pickup.html">Pick Up</a></li>
+                                <li><a href="flex.html">Flex</a></li>
+                                <li><a href="fixypay.html">FixyPay</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-items">
+                            <h3 class="footer-title mb-2">Institucional</h3>
+                            <ul>
+                                <li><a href="../index.html#contacto">Sobre nosotros</a></li>
+                                <li><a href="../index.html#contacto">Prensa y novedades</a></li>
+                                <li><a href="mailto:ventas@fixy.com.ar?subject=Trabajar%20en%20Fixy">Trabaja con nosotros</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-items">
+                            <h3 class="footer-title mb-2">Soporte</h3>
+                            <ul>
+                                <li><a href="https://fixy.epresis.com/login" target="_blank" rel="noopener">Portal Sellers</a></li>
+                                <li><a href="https://fixy.epresis.com/seguimiento" target="_blank" rel="noopener">Segui tu envio</a></li>
+                                <li><a href="../index.html#faq">Centro de Ayuda</a></li>
+                                <li><a href="../index.html#contacto">Documentacion API</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-items">
+                            <h3 class="footer-title mb-2">Contacto y legal</h3>
+                            <ul>
+                                <li><a href="tel:+5491150069182">WhatsApp +54 9 11 5006-9182</a></li>
+                                <li><a href="mailto:ventas@fixy.com.ar">ventas@fixy.com.ar</a></li>
+                                <li><span>Fernandez 1957, Parque Avellaneda, C1407, CABA</span></li>
+                                <li><a href="../index.html#contacto">Politicas de Privacidad</a></li>
+                            </ul>
+                            <div class="social-icons d-flex">
+                                <a class="facebook" href="https://www.facebook.com/FIXYLOGISTICA/" target="_blank" rel="noopener" aria-label="Facebook de Fixy"><i class="fab fa-facebook-f"></i><i class="fab fa-facebook-f"></i></a>
+                                <a class="instagram" href="https://www.instagram.com/fixylogistica/" target="_blank" rel="noopener" aria-label="Instagram de Fixy"><i class="fab fa-instagram"></i><i class="fab fa-instagram"></i></a>
+                                <a class="linkedin" href="https://www.linkedin.com/company/fixylogistica/" target="_blank" rel="noopener" aria-label="LinkedIn de Fixy"><i class="fab fa-linkedin-in"></i><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-partners footer-partners-2026">
+                        <a href="https://arlog.org/" target="_blank" rel="noopener" aria-label="ARLOG"><img src="../images/ARLOG2.png" alt="ARLOG"></a>
+                        <a href="https://vistage.com.ar/" target="_blank" rel="noopener" aria-label="Vistage"><img src="../images/VISTAGE.png" alt="Vistage"></a>
+                        <a href="https://cace.org.ar/" target="_blank" rel="noopener" aria-label="CACE"><img src="../images/CACE.png" alt="CACE"></a>
+                        <a href="https://www.enacom.gob.ar" target="_blank" rel="noopener" aria-label="ENACOM"><img src="../images/ENACOM.png" alt="ENACOM"></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/plugins.min.js"></script>
+    <script src="../js/active.js"></script>
+    <script src="../js/scroll-reveal.js"></script>
+    <script src="../js/fixy-motion.js"></script>
+    <script>
+        (function () {
+            var servicesItem = document.querySelector('.services-nav-item');
+            if (!servicesItem) { return; }
+            var toggle = servicesItem.querySelector('.services-menu-toggle');
+            function setServicesOpen(isOpen) { servicesItem.classList.toggle('is-open', isOpen); toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false'); }
+            toggle.addEventListener('click', function (event) { event.preventDefault(); event.stopPropagation(); setServicesOpen(!servicesItem.classList.contains('is-open')); });
+            servicesItem.addEventListener('mouseenter', function () { if (window.matchMedia('(min-width: 992px)').matches) { setServicesOpen(true); } });
+            servicesItem.addEventListener('mouseleave', function () { if (window.matchMedia('(min-width: 992px)').matches) { setServicesOpen(false); } });
+            document.addEventListener('click', function (event) { if (!servicesItem.contains(event.target)) { setServicesOpen(false); } });
+            document.addEventListener('keydown', function (event) { if (event.key === 'Escape') { setServicesOpen(false); toggle.blur(); } });
+        }());
+    </script>
+    <!-- Mapa real de la red FixyPoints: Leaflet + clustering + Firebase (con datos de arranque de respaldo) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/pickup-map-public.js"></script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FixyPay | Cobranza logística QR contraentrega | Fixy</title>
+    <meta name="description" content="FixyPay es la billetera de la logística: cobranza QR contraentrega conectada con pedidos, paquetes, rutas, entregas y trazabilidad operativa.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/fixy-services.css">
+    <link rel="stylesheet" href="../css/fixy-motion.css">
+</head>
+<body class="homepage-5 fixypay-page">
+    <div class="fxm-progress" aria-hidden="true"><span></span></div>
+    <a href="https://linktr.ee/fixylogistica" target="_blank" rel="noopener noreferrer" class="wp-fijo" aria-label="Contactar a Fixy">
+        <i class="far fa-comment-dots" aria-hidden="true"></i>
+    </a>
+    <button class="fixy-mobile-menu-button navbar-toggler" type="button" data-toggle="navbarToggler" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="main">
+        <header class="navbar navbar-sticky navbar-expand-lg navbar-dark fixypay-navbar">
+            <div class="container position-relative">
+                <a class="navbar-brand" href="../index.html">
+                    <img class="navbar-brand-regular" src="../images/logo-celeste.png" alt="Fixy" width="150">
+                    <img class="navbar-brand-sticky" src="../images/logo-celeste.png" alt="Fixy" width="150">
+                </a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="navbar-inner">
+                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="navbarToggler" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <nav>
+                        <ul class="navbar-nav" id="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                            <li class="nav-item services-nav-item">
+                                <button class="nav-link services-menu-toggle" type="button" aria-expanded="false" aria-controls="services-dropdown"><span>Servicios</span><span class="services-menu-chevron" aria-hidden="true"></span></button>
+                                <div class="services-dropdown" id="services-dropdown">
+                                    <a class="services-dropdown-link" href="sameday.html"><span class="services-dropdown-icon services-icon-sameday" aria-hidden="true"></span><span><strong>Same Day</strong><small>Entregas en el dia para operaciones agiles.</small></span></a>
+                                    <a class="services-dropdown-link" href="fulfillment.html"><span class="services-dropdown-icon services-icon-fulfillment" aria-hidden="true"></span><span><strong>Fulfillment</strong><small>Almacenamiento, preparacion y despacho con FixyFull.</small></span></a>
+                                    <a class="services-dropdown-link" href="nextday.html"><span class="services-dropdown-icon services-icon-nextday" aria-hidden="true"></span><span><strong>Next Day</strong><small>Envios en 24 hs para CABA y GBA.</small></span></a>
+                                    <a class="services-dropdown-link" href="pickup.html"><span class="services-dropdown-icon services-icon-pickup" aria-hidden="true"></span><span><strong>Pick Up</strong><small>Puntos de retiro y despacho para ampliar cobertura.</small></span></a>
+                                    <a class="services-dropdown-link" href="flex.html"><span class="services-dropdown-icon services-icon-flex" aria-hidden="true"></span><span><strong>Flex</strong><small>Solucion para operaciones con Mercado Envios Flex.</small></span></a>
+                                    <a class="services-dropdown-link current-service" href="fixypay.html" aria-current="page"><span class="services-dropdown-icon services-icon-fixypay" aria-hidden="true"></span><span><strong>FixyPay</strong><small>Cobranza QR contraentrega con acreditacion inmediata.</small></span></a>
+                                </div>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#como-funciona">Cómo funciona</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#beneficios-fixypay">Beneficios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#faq-fixypay">FAQ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contacto-servicio">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="fpay-hero">
+                <div class="container">
+                    <div class="fpay-hero-grid">
+                        <div class="fpay-hero-copy">
+                            <img class="fpay-brand fxm-intro" src="../images/FixyPay.png" alt="FixyPay" width="190">
+                            <span class="fpay-kicker fxm-intro" data-fxm-delay="1">Cobranza logística QR contraentrega</span>
+                            <h1 class="fxm-intro" data-fxm-delay="2">La billetera de la logística.</h1>
+                            <p class="fpay-lead fxm-intro" data-fxm-delay="3">FixyPay conecta la entrega del pedido con el cierre del cobro. No empieza en una app financiera: empieza con un paquete, una ruta y una operación logística en movimiento.</p>
+                            <div class="fpay-actions fxm-intro" data-fxm-delay="4">
+                                <a class="fpay-btn fpay-btn-primary fxm-magnetic fxm-shine" href="#contacto-servicio">Activar FixyPay</a>
+                                <a class="fpay-btn fpay-btn-secondary" href="#como-funciona">Ver cómo funciona</a>
+                            </div>
+                            <div class="fpay-hero-chips fxm-intro" data-fxm-delay="4" aria-label="Características de FixyPay">
+                                <span>Pedido</span>
+                                <span>Paquete</span>
+                                <span>Ruta</span>
+                                <span>Entrega</span>
+                                <span>Cobro QR</span>
+                            </div>
+                        </div>
+                        <div class="fpay-hero-visual" aria-label="Flujo visual de entrega y cobro FixyPay">
+                            <div class="fpay-device">
+                                <div class="fpay-device-top">
+                                    <span>Ruta activa</span>
+                                    <strong>Pedido #FX-2481</strong>
+                                </div>
+                                <div class="fpay-route-card">
+                                    <div class="fpay-route-line" aria-hidden="true"><span></span><span></span><span></span></div>
+                                    <div>
+                                        <small>Estado</small>
+                                        <strong>En punto de entrega</strong>
+                                    </div>
+                                </div>
+                                <div class="fpay-qr-row">
+                                    <div class="fpay-qr" aria-hidden="true">
+                                        <span></span><span></span><span></span><span></span>
+                                    </div>
+                                    <div>
+                                        <small>Cobro contraentrega</small>
+                                        <strong>QR generado</strong>
+                                    </div>
+                                </div>
+                                <div class="fpay-device-foot">
+                                    <span>Entrega confirmada</span>
+                                    <strong>Cobro registrado</strong>
+                                </div>
+                            </div>
+                            <div class="fpay-package" aria-hidden="true">
+                                <i class="fas fa-box"></i>
+                                <span>pedido</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fpay-trust-bar">
+                <div class="container">
+                    <ul class="fpay-trust-list">
+                        <li><strong>Cobranza logística</strong><span>El cobro vive dentro del flujo de entrega, no separado de él.</span></li>
+                        <li><strong>QR contraentrega</strong><span>El destinatario paga al recibir, de forma simple y trazable.</span></li>
+                        <li><strong>Registro operativo</strong><span>Pedido, entrega y cobro quedan conectados para tu equipo.</span></li>
+                        <li><strong>Partners de pago</strong><span>La infraestructura puede operar mediante integraciones especializadas.</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="fpay-section fpay-statement" data-reveal>
+                <div class="container">
+                    <div class="fpay-statement-inner">
+                        <span class="fpay-kicker">Una categoría propia</span>
+                        <h2>Una billetera común empieza cuando alguien paga. FixyPay empieza antes.</h2>
+                        <p>Empieza cuando entra un pedido, cuando se prepara el paquete, cuando se arma la ruta y cuando la entrega llega al destinatario. El pago no aparece como un paso aislado: sucede dentro del recorrido logístico.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="como-funciona" class="fpay-section fpay-flow-section" data-reveal>
+                <div class="container">
+                    <div class="fpay-heading">
+                        <span>Cómo funciona</span>
+                        <h2>Del pedido al cobro, sin separar la operación</h2>
+                        <p>FixyPay ordena el momento de pago contraentrega para que el comercio pueda ofrecer una alternativa clara y el equipo operativo mantenga visibilidad.</p>
+                    </div>
+                    <div class="fpay-flow">
+                        <article>
+                            <span>01</span>
+                            <h3>Pedido preparado</h3>
+                            <p>La tienda vende, prepara el pedido y lo incorpora al circuito logístico de Fixy.</p>
+                        </article>
+                        <article>
+                            <span>02</span>
+                            <h3>Ruta asignada</h3>
+                            <p>El paquete se mueve con trazabilidad y contexto operativo hasta el punto de entrega.</p>
+                        </article>
+                        <article>
+                            <span>03</span>
+                            <h3>QR al entregar</h3>
+                            <p>Al llegar, se presenta la opción de pago QR contraentrega para el destinatario.</p>
+                        </article>
+                        <article>
+                            <span>04</span>
+                            <h3>Cobro registrado</h3>
+                            <p>El cierre del cobro queda asociado al pedido, la entrega y la gestión comercial.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fpay-section fpay-difference" data-reveal>
+                <div class="container">
+                    <div class="fpay-comparison-grid">
+                        <div>
+                            <span class="fpay-kicker dark">Diferencia clave</span>
+                            <h2>No es una billetera genérica. Es cobranza logística.</h2>
+                            <p>FixyPay no se presenta como banco, cuenta, tarjeta ni inversión. Su valor está en conectar el pago contraentrega con la realidad operativa de una venta online.</p>
+                        </div>
+                        <div class="fpay-compare">
+                            <div class="fpay-compare-row muted">
+                                <strong>Billetera tradicional</strong>
+                                <span>Pago</span>
+                                <span>Comprobante</span>
+                                <span>Movimiento financiero</span>
+                            </div>
+                            <div class="fpay-compare-row active">
+                                <strong>FixyPay</strong>
+                                <span>Pedido</span>
+                                <span>Paquete</span>
+                                <span>Ruta</span>
+                                <span>Entrega</span>
+                                <span>Cobro QR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="beneficios-fixypay" class="fpay-section fpay-benefits" data-reveal>
+                <div class="container">
+                    <div class="fpay-heading">
+                        <span>Beneficios</span>
+                        <h2>Más control para tiendas, operadores y destinatarios</h2>
+                    </div>
+                    <div class="fpay-benefit-grid">
+                        <article>
+                            <i class="fas fa-store" aria-hidden="true"></i>
+                            <h3>Para tiendas</h3>
+                            <p>Permite sumar pago contraentrega con menos fricción, mantener el cobro asociado al pedido y reducir la dependencia del efectivo.</p>
+                        </article>
+                        <article>
+                            <i class="fas fa-route" aria-hidden="true"></i>
+                            <h3>Para operadores</h3>
+                            <p>Ordena el momento de cobro dentro del circuito de entrega y facilita el seguimiento de cada cierre operativo.</p>
+                        </article>
+                        <article>
+                            <i class="fas fa-user-check" aria-hidden="true"></i>
+                            <h3>Para destinatarios</h3>
+                            <p>Ofrece una forma simple de pagar al recibir el pedido, sin convertir la entrega en una experiencia confusa.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fpay-section fpay-ops" data-reveal>
+                <div class="container">
+                    <div class="fpay-ops-grid">
+                        <div class="fpay-ops-panel">
+                            <span>Panel operativo</span>
+                            <ol>
+                                <li><strong>Pedido recibido</strong><small>Contexto comercial y datos de entrega.</small></li>
+                                <li><strong>En recorrido</strong><small>Ruta activa y seguimiento del paquete.</small></li>
+                                <li><strong>Entrega en curso</strong><small>QR disponible para cobro contraentrega.</small></li>
+                                <li><strong>Cierre registrado</strong><small>Entrega y cobro conectados en la operación.</small></li>
+                            </ol>
+                        </div>
+                        <div class="fpay-ops-copy">
+                            <span class="fpay-kicker dark">Trazabilidad</span>
+                            <h2>El cobro deja de ser una conversación aparte</h2>
+                            <p>Cuando la cobranza queda fuera de la operación, aparecen huecos: quién entregó, quién pagó, qué pedido corresponde y cómo se informa. FixyPay ayuda a unir esos puntos para que el equipo comercial y operativo hablen sobre el mismo pedido.</p>
+                            <ul class="fpay-checklist">
+                                <li>Menos dependencia del efectivo físico.</li>
+                                <li>Más orden entre entrega y registro de cobro.</li>
+                                <li>Mejor experiencia para clientes que prefieren pagar al recibir.</li>
+                                <li>Un flujo coherente con Same Day, Next Day y otras soluciones Fixy.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fpay-section fpay-ecosystem" data-reveal>
+                <div class="container">
+                    <div class="fpay-heading">
+                        <span>Ecosistema Fixy</span>
+                        <h2>Funciona donde la logística ya está sucediendo</h2>
+                        <p>FixyPay puede acompañar servicios de entrega y operaciones de e-commerce que necesitan cerrar la venta en el último tramo.</p>
+                    </div>
+                    <div class="fpay-ecosystem-grid">
+                        <a href="sameday.html">Same Day <span>Entrega rápida con opción contraentrega.</span></a>
+                        <a href="nextday.html">Next Day <span>Pedidos al día siguiente con cobro integrado.</span></a>
+                        <a href="fulfillment.html">Fulfillment <span>Stock, preparación, despacho y cierre comercial.</span></a>
+                        <a href="flex.html">Flex <span>Operaciones con demanda activa y recorridos exigentes.</span></a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contacto-servicio" class="service-contact-section service-contact-fixypay" data-reveal>
+                <div class="container">
+                    <div class="service-contact-grid">
+                        <div class="service-contact-copy">
+                            <span class="service-contact-kicker">Activar FixyPay</span>
+                            <h2>Contanos cómo querés cobrar contraentrega</h2>
+                            <p>Con esos datos podemos entender tu operación, validar la modalidad de cobro y orientarte sobre cómo sumar FixyPay dentro del circuito logístico.</p>
+                        </div>
+                        <form class="service-contact-form" data-service="fixypay" action="#" method="post">
+                            <input type="hidden" name="servicio" value="FixyPay">
+                            <div class="service-form-grid">
+                                <label>Nombre y apellido<input type="text" name="nombre" autocomplete="name" required></label>
+                                <label>Empresa / marca<input type="text" name="empresa" autocomplete="organization" required></label>
+                                <label>WhatsApp o teléfono<input type="tel" name="telefono" autocomplete="tel" required></label>
+                                <label>Email<input type="email" name="email" autocomplete="email" required></label>
+                                <label>Web / tienda online<input type="url" name="web" placeholder="https://"></label>
+                                <label>Servicio Fixy que usás o querés usar<select name="servicio_logistico"><option>Seleccionar</option><option>Same Day</option><option>Next Day</option><option>Fulfillment</option><option>Flex</option><option>Aún no opero con Fixy</option></select></label>
+                                <label>Volumen mensual aproximado<select name="volumen_mensual"><option>Seleccionar</option><option>Menos de 100 pedidos</option><option>100 a 500 pedidos</option><option>500 a 1000 pedidos</option><option>Más de 1000 pedidos</option></select></label>
+                                <label>Modalidad actual de cobro<select name="modalidad_actual"><option>Seleccionar</option><option>Pago anticipado</option><option>Efectivo contraentrega</option><option>QR / transferencia</option><option>Mixto</option></select></label>
+                                <label>Principal objetivo<select name="objetivo"><option>Reducir efectivo</option><option>Ofrecer pago al recibir</option><option>Ordenar conciliación</option><option>Mejorar trazabilidad</option></select></label>
+                                <label class="service-form-full">Mensaje / comentario<textarea name="mensaje" rows="4" placeholder="Contanos zonas, tipo de producto, volumen y cómo resolvés hoy el cobro contraentrega."></textarea></label>
+                            </div>
+                            <button class="service-form-submit" type="submit">Solicitar activación</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq-fixypay" class="fpay-section fpay-faq" data-reveal>
+                <div class="container">
+                    <div class="fpay-heading compact-heading">
+                        <span>Preguntas frecuentes</span>
+                        <h2>Lo básico antes de activar FixyPay</h2>
+                    </div>
+                    <div class="accordion service-accordion fpay-accordion" id="fpayFaqAccordion">
+                        <div class="card">
+                            <div class="card-header" id="fpayFaqOne">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#fpayFaqOneBody" aria-expanded="true" aria-controls="fpayFaqOneBody">¿FixyPay es una billetera virtual tradicional?</button>
+                            </div>
+                            <div id="fpayFaqOneBody" class="collapse show" aria-labelledby="fpayFaqOne" data-parent="#fpayFaqAccordion">
+                                <div class="card-body">No. FixyPay está pensado como cobranza logística: el cobro QR contraentrega se conecta con pedidos, paquetes, rutas y entregas dentro del ecosistema Fixy.</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="fpayFaqTwo">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#fpayFaqTwoBody" aria-expanded="false" aria-controls="fpayFaqTwoBody">¿El destinatario paga al recibir?</button>
+                            </div>
+                            <div id="fpayFaqTwoBody" class="collapse" aria-labelledby="fpayFaqTwo" data-parent="#fpayFaqAccordion">
+                                <div class="card-body">Sí. La propuesta es permitir cobro QR contraentrega para clientes que prefieren cerrar el pago cuando reciben el pedido.</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="fpayFaqThree">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#fpayFaqThreeBody" aria-expanded="false" aria-controls="fpayFaqThreeBody">¿FixyPay reemplaza mi checkout?</button>
+                            </div>
+                            <div id="fpayFaqThreeBody" class="collapse" aria-labelledby="fpayFaqThree" data-parent="#fpayFaqAccordion">
+                                <div class="card-body">No necesariamente. Funciona como una alternativa para operaciones que quieren sumar pago contraentrega, sin sacar el foco de la logística y la entrega.</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="fpayFaqFour">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#fpayFaqFourBody" aria-expanded="false" aria-controls="fpayFaqFourBody">¿Fixy procesa los pagos con tecnología financiera propia?</button>
+                            </div>
+                            <div id="fpayFaqFourBody" class="collapse" aria-labelledby="fpayFaqFour" data-parent="#fpayFaqAccordion">
+                                <div class="card-body">La infraestructura de procesamiento puede ser provista por partners o integraciones especializadas. FixyPay organiza la experiencia de cobro dentro del recorrido logístico.</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="fpayFaqFive">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#fpayFaqFiveBody" aria-expanded="false" aria-controls="fpayFaqFiveBody">¿Puedo usarlo con otros servicios de Fixy?</button>
+                            </div>
+                            <div id="fpayFaqFiveBody" class="collapse" aria-labelledby="fpayFaqFive" data-parent="#fpayFaqAccordion">
+                                <div class="card-body">Sí. FixyPay está pensado para convivir con servicios logísticos de Fixy como Same Day, Next Day, Flex y operaciones de e-commerce que requieran cobro al entregar.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="fpay-final" data-reveal>
+                <div class="container">
+                    <div class="fpay-final-inner">
+                        <span class="fpay-kicker">Cobranza logística</span>
+                        <h2>Entregá el pedido. Cerrá el cobro. Mantené el control.</h2>
+                        <p>FixyPay convierte el pago contraentrega en parte de la operación: más simple para el destinatario, más visible para tu equipo y más coherente con la logística de tu e-commerce.</p>
+                        <a class="fpay-btn fpay-btn-light fxm-magnetic fxm-shine" href="#contacto-servicio">Quiero activar FixyPay</a>
+                        <div><span class="service-final-urgency">Respondemos tu consulta el mismo día hábil</span></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-area footer-dark">
+            <div class="footer-top ptb_100">
+                <div class="container">
+                    <div class="footer-grid-2026">
+                        <div class="footer-items">
+                            <h3 class="footer-title mb-2">Soluciones</h3>
+                            <ul>
+                                <li><a href="sameday.html">Same Day</a></li>
+                                <li><a href="nextday.html">Next Day</a></li>
+                                <li><a href="fulfillment.html">Fulfillment</a></li>
+                                <li><a href="pickup.html">Pick Up</a></li>
+                                <li><a href="flex.html">Flex</a></li>
+                                <li><a href="fixypay.html">FixyPay</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-items">
+                            <h3 class="footer-title mb-2">Institucional</h3>
+                            <ul>
+                                <li><a href="../index.html#contacto">Sobre nosotros</a></li>
+                                <li><a href="../index.html#contacto">Prensa y novedades</a></li>
+                                <li><a href="mailto:ventas@fixy.com.ar?subject=Trabajar%20en%20Fixy">Trabaja con nosotros</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-items">
+                            <h3 class="footer-title mb-2">Soporte</h3>
+                            <ul>
+                                <li><a href="https://fixy.epresis.com/login" target="_blank" rel="noopener">Portal Sellers</a></li>
+                                <li><a href="https://fixy.epresis.com/seguimiento" target="_blank" rel="noopener">Segui tu envio</a></li>
+                                <li><a href="../index.html#faq">Centro de Ayuda</a></li>
+                                <li><a href="../index.html#contacto">Documentacion API</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-items">
+                            <h3 class="footer-title mb-2">Contacto y legal</h3>
+                            <ul>
+                                <li><a href="tel:+5491150069182">WhatsApp +54 9 11 5006-9182</a></li>
+                                <li><a href="mailto:ventas@fixy.com.ar">ventas@fixy.com.ar</a></li>
+                                <li><span>Fernandez 1957, Parque Avellaneda, C1407, CABA</span></li>
+                                <li><a href="../index.html#contacto">Politicas de Privacidad</a></li>
+                            </ul>
+                            <div class="social-icons d-flex">
+                                <a class="facebook" href="https://www.facebook.com/FIXYLOGISTICA/" target="_blank" rel="noopener" aria-label="Facebook de Fixy"><i class="fab fa-facebook-f"></i><i class="fab fa-facebook-f"></i></a>
+                                <a class="instagram" href="https://www.instagram.com/fixylogistica/" target="_blank" rel="noopener" aria-label="Instagram de Fixy"><i class="fab fa-instagram"></i><i class="fab fa-instagram"></i></a>
+                                <a class="linkedin" href="https://www.linkedin.com/company/fixylogistica/" target="_blank" rel="noopener" aria-label="LinkedIn de Fixy"><i class="fab fa-linkedin-in"></i><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-partners footer-partners-2026">
+                        <a href="https://arlog.org/" target="_blank" rel="noopener" aria-label="ARLOG"><img src="../images/ARLOG2.png" alt="ARLOG"></a>
+                        <a href="https://vistage.com.ar/" target="_blank" rel="noopener" aria-label="Vistage"><img src="../images/VISTAGE.png" alt="Vistage"></a>
+                        <a href="https://cace.org.ar/" target="_blank" rel="noopener" aria-label="CACE"><img src="../images/CACE.png" alt="CACE"></a>
+                        <a href="https://www.enacom.gob.ar" target="_blank" rel="noopener" aria-label="ENACOM"><img src="../images/ENACOM.png" alt="ENACOM"></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/plugins.min.js"></script>
+    <script src="../js/active.js"></script>
+    <script src="../js/scroll-reveal.js"></script>
+    <script src="../js/fixy-motion.js"></script>
+    <script>
+        (function () {
+            var servicesItem = document.querySelector('.services-nav-item');
+            if (!servicesItem) { return; }
+            var toggle = servicesItem.querySelector('.services-menu-toggle');
+            function setServicesOpen(isOpen) { servicesItem.classList.toggle('is-open', isOpen); toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false'); }
+            toggle.addEventListener('click', function (event) { event.preventDefault(); event.stopPropagation(); setServicesOpen(!servicesItem.classList.contains('is-open')); });
+            servicesItem.addEventListener('mouseenter', function () { if (window.matchMedia('(min-width: 992px)').matches) { setServicesOpen(true); } });
+            servicesItem.addEventListener('mouseleave', function () { if (window.matchMedia('(min-width: 992px)').matches) { setServicesOpen(false); } });
+            document.addEventListener('click', function (event) { if (!servicesItem.contains(event.target)) { setServicesOpen(false); } });
+            document.addEventListener('keydown', function (event) { if (event.key === 'Escape') { setServicesOpen(false); toggle.blur(); } });
+        }());
+    </script>
+</body>
+</html>

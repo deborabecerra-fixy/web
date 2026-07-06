@@ -1,0 +1,41 @@
+// ================================================================
+// REGLAS DE SEGURIDAD DE FIRESTORE — Fixy PickUp
+// ================================================================
+// Qué hace esto:
+// - Cualquier visitante del sitio puede LEER únicamente los puntos
+//   con estado "activo" (para el mapa público).
+// - Solo usuarios que figuran en la colección "admins" (dados de alta
+//   a mano por vos desde la consola de Firebase) pueden crear,
+//   editar, pausar o eliminar puntos, y pueden ver también los
+//   puntos pausados dentro del panel de administración.
+// - Nadie puede escribir en "admins" desde el navegador: esa
+//   colección se administra solo desde la consola de Firebase, así
+//   nadie puede "auto-otorgarse" permisos de administrador.
+//
+// CÓMO CARGAR ESTAS REGLAS:
+// Consola de Firebase > tu proyecto > Firestore Database > pestaña
+// "Reglas" > pegar este contenido completo > "Publicar".
+// (Instrucciones detalladas en SETUP-FIREBASE.md)
+// ================================================================
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function esAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    match /pickupPoints/{pointId} {
+      allow read: if resource.data.estado == 'activo' || esAdmin();
+      allow create, update, delete: if esAdmin();
+    }
+
+    match /admins/{adminId} {
+      allow read: if esAdmin();
+      allow write: if false; // gestionar solo desde la consola de Firebase
+    }
+  }
+}
